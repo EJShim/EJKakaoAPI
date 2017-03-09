@@ -38,7 +38,7 @@ module.exports = function(app, fs)
 		if(req.body["content"] == "도움말" || req.body["content"] == "시작하기" || req.body["content"] == "만든이"){
 
 			fs.readFile( __dirname + "/../data/message.json", 'utf8',  function(err, data){
-				var messages = JSON.parse(data);
+				var messages = JSON.parse(data)["content"];
 
 				// 각 keyboard 버튼에 따른 응답 메시지 설정
 				if(req.body["content"] == "도움말"){
@@ -65,7 +65,7 @@ module.exports = function(app, fs)
 			})
 		}else { //아무말이나 할때
 			fs.readFile( __dirname + "/../data/message.json", 'utf8',  function(err, data){
-				var messages = JSON.parse(data);
+				var messages = JSON.parse(data)["content"];
 				res.end(JSON.stringify(messages));
 
 			})
