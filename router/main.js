@@ -5,7 +5,7 @@
 module.exports = function(app, fs)
 {
 
-
+	console.log("init");
 	// 키보드
 	app.get('/keyboard', function(req, res){
 		console.log("keyboard");
