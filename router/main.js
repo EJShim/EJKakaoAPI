@@ -50,7 +50,7 @@ module.exports = function(app, fs)
 				}
 
 				res.end( JSON.stringify(messages) );
-				return;
+				//return;
 
 				// fs.writeFile(__dirname + "/../data/message.json",
 				// 			 JSON.stringify(messages, null, '\t'), "utf8", function(err, data){
