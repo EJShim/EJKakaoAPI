@@ -2,6 +2,9 @@
  * Created by http://myeonguni.com on 2016-09-04.
  */
 
+var jaccard = require ('jaccard-similarity-sentences');
+
+
 module.exports = function(app, fs)
 {
 
@@ -68,9 +71,25 @@ module.exports = function(app, fs)
 				var messages = JSON.parse(data)["content"];
 				var array = JSON.parse(data)["array"];
 
+				var sentence1 = req.body["content"];
+				var maximum = 0;
+				var result;
+
+				for(var i in array){
+					//var sentence2 = array[i];
+					var measure = jaccard.jaccardSimilarity(sentence1,  array[i]);
+
+					if(measure > maximum){
+						maximum = measure;
+						result = array[i];
+					}
+				}
+
+				console.log("Similarity : " + maximum);
+
 				//랜덤하게 아무말이나 내뱉음
-				var temp = array[Math.floor(Math.random() * array.length)];
-				messages["message"] = {"text" : temp};
+				//var temp = array[Math.floor(Math.random() * array.length)];
+				messages["message"] = {"text" : result};
 
 				res.end(JSON.stringify(messages));
 

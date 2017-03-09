@@ -8,6 +8,7 @@
     "encodeuri-safe": "~0.0.1",
     "express": "~4.13.1",
     "express-session": "~1.13.0",
+    "jaccard-similarity-sentences": "^1.0.2",
     "request": "~2.74.0"
   }
 }
