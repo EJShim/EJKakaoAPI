@@ -83,10 +83,10 @@ module.exports = function(app, fs)
 					//var sentence2 = array[i];
 					//var measure = jaccard.jaccardSimilarity(sentence1,  array[i]);
 					console.log("sentence1 , " + array[i]);
-					if(measure > maximum){
-						maximum = measure;
-						result = array[i];
-					}
+					// if(measure > maximum){
+					// 	maximum = measure;
+					// 	result = array[i];
+					// }
 				}
 
 				console.log("Similarity : " + maximum);
