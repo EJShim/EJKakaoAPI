@@ -2,7 +2,7 @@
  * Created by http://myeonguni.com on 2016-09-04.
  */
 
-var jaccard = require ('jaccard-similarity-sentences');
+
 
 
 module.exports = function(app, fs)
@@ -67,6 +67,8 @@ module.exports = function(app, fs)
 
 			})
 		}else { //아무말이나 할때
+			var jaccard = require ('jaccard-similarity-sentences');
+
 			fs.readFile( __dirname + "/../data/message.json", 'utf8',  function(err, data){
 				var messages = JSON.parse(data)["content"];
 				var array = JSON.parse(data)["array"];
@@ -74,6 +76,8 @@ module.exports = function(app, fs)
 				var sentence1 = req.body["content"];
 				var maximum = 0;
 				var result;
+
+				console.log(sentence1);
 
 				for(var i in array){
 					//var sentence2 = array[i];
