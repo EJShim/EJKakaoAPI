@@ -52,15 +52,15 @@ module.exports = function(app, fs)
 				fs.writeFile(__dirname + "/../data/message.json",
 							 JSON.stringify(messages, null, '\t'), "utf8", function(err, data){
 				})
-				//
-				//
-				// fs.readFile( __dirname + "/../data/message.json", 'utf8', function (err, data) {
-				// 	// 결과 로그 출력
-				// 	console.log("Request_user_key : "+req.body["user_key"]);
-				// 	console.log("Request_type : keyboard - "+req.body["content"]);
-				// 	res.end(data);
-				// 	return;
-				// })
+
+				
+				fs.readFile( __dirname + "/../data/message.json", 'utf8', function (err, data) {
+					// 결과 로그 출력
+					console.log("Request_user_key : "+req.body["user_key"]);
+					console.log("Request_type : keyboard - "+req.body["content"]);
+					res.end(data);
+					return;
+				})
 			})
 
 		}else { // 아닐 경우 이미지검색 실시
