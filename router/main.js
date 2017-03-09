@@ -75,14 +75,14 @@ module.exports = function(app, fs)
 
 				var sentence1 = req.body["content"];
 				var maximum = 0;
-				var result;
+				var result = "temp";
 
 				console.log(sentence1);
 
 				for(var i in array){
 					//var sentence2 = array[i];
-					var measure = jaccard.jaccardSimilarity(sentence1,  array[i]);
-
+					//var measure = jaccard.jaccardSimilarity(sentence1,  array[i]);
+					console.log("sentence1 , " + array[i]);
 					if(measure > maximum){
 						maximum = measure;
 						result = array[i];
