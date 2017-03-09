@@ -67,7 +67,8 @@ module.exports = function(app, fs)
 			fs.readFile( __dirname + "/../data/message.json", 'utf8',  function(err, data){
 				var messages = JSON.parse(data)["content"];
 				var array = JSON.parse(data)["array"];
-				//var rand = Math.floor(Math.random() * 3);
+				
+				//랜덤하게 아무말이나 내뱉음
 				var temp = array[Math.floor(Math.random() * array.length)];
 				messages["message"] = {"text" : temp};
 
