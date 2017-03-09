@@ -30,7 +30,7 @@ module.exports = function(app, fs)
       return;
     }
 
-		console.log(req.body);
+		console.log("내가 출력한것!!" + req.body);
 
 		// 초기 keyboard 버튼일 경우(도움말||시작하기||만든이)
 		if(req.body["content"] == "도움말" || req.body["content"] == "시작하기" || req.body["content"] == "만든이"){
