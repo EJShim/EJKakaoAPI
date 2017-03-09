@@ -68,7 +68,7 @@ module.exports = function(app, fs)
 				var messages = JSON.parse(data)["content"];
 				var array = JSON.parse(data)["array"];
 
-				//var rand = Math.floor(Math.Random() * 3);
+				var rand = Math.floor(Math.random() * 3);
 				var temp = array[0];
 				messages["message"] = {"text" : temp};
 
