@@ -66,6 +66,13 @@ module.exports = function(app, fs)
 		}else { //아무말이나 할때
 			fs.readFile( __dirname + "/../data/message.json", 'utf8',  function(err, data){
 				var messages = JSON.parse(data)["content"];
+				var array = JSON.parse(data)["array"];
+
+				var rand = Math.floor(Math.Random() * 3);
+				var temp = array[rand];
+				messages["message"] = {"text" : temp};
+
+
 				res.end(JSON.stringify(messages));
 
 			})
