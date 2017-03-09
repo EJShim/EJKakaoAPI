@@ -49,11 +49,11 @@ module.exports = function(app, fs)
 					messages["message"] = {"text" : "명우니닷컴(http://myeonguni.com)에서 개발한것을 심응준이 수정했습니다."};
 				}
 
-				fs.writeFile(__dirname + "/../data/message.json",
-							 JSON.stringify(messages, null, '\t'), "utf8", function(err, data){
-				})
+				// fs.writeFile(__dirname + "/../data/message.json",
+				// 			 JSON.stringify(messages, null, '\t'), "utf8", function(err, data){
+				// })
 
-				
+
 				fs.readFile( __dirname + "/../data/message.json", 'utf8', function (err, data) {
 					// 결과 로그 출력
 					console.log("Request_user_key : "+req.body["user_key"]);
