@@ -5,7 +5,10 @@
 module.exports = function(app, fs)
 {
 
-	console.log("init");
+	app.get('/', function(req, res){
+			res.end("Hello World");
+	});
+
 	// 키보드
 	app.get('/keyboard', function(req, res){
 		console.log("keyboard");
@@ -20,15 +23,16 @@ module.exports = function(app, fs)
 		var result = {  };
 
 		// CHECK REQ VALIDITY
-        if(!req.body["user_key"] || !req.body["type"] || !req.body["content"]){
-            result["success"] = 0;
-            result["error"] = "invalid request";
+    if(!req.body["user_key"] || !req.body["type"] || !req.body["content"]){
+    	result["success"] = 0;
+      result["error"] = "invalid request";
 			res.json(result);
-            return;
-        }
+      return;
+    }
 
 		// 초기 keyboard 버튼일 경우(도움말||시작하기||만든이)
 		if(req.body["content"] == "도움말" || req.body["content"] == "시작하기" || req.body["content"] == "만든이"){
+
 			fs.readFile( __dirname + "/../data/message.json", 'utf8',  function(err, data){
 				var messages = JSON.parse(data);
 				// 각 keyboard 버튼에 따른 응답 메시지 설정
