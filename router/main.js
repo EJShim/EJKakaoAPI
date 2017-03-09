@@ -30,9 +30,9 @@ module.exports = function(app, fs)
       return;
     }
 
-		console.log("내가 출력한것!!");
-		console.log(req.body);
-		console.log("이것!");
+
+		console.log(req.body["content"]);
+
 
 		// 초기 keyboard 버튼일 경우(도움말||시작하기||만든이)
 		if(req.body["content"] == "도움말" || req.body["content"] == "시작하기" || req.body["content"] == "만든이"){
@@ -49,20 +49,20 @@ module.exports = function(app, fs)
 					messages["message"] = {"text" : "명우니닷컴(http://myeonguni.com)에서 개발한것을 심응준이 수정했습니다."};
 				}
 
-
-				fs.writeFile(__dirname + "/../data/message.json",
-							 JSON.stringify(messages, null, '\t'), "utf8", function(err, data){
-				})
-
-
-				fs.readFile( __dirname + "/../data/message.json", 'utf8', function (err, data) {
-					// 결과 로그 출력
-					console.log("Request_user_key : "+req.body["user_key"]);
-					console.log("Request_type : keyboard - "+req.body["content"]);
-					res.end(data);
-					return;
-				})
+				// fs.writeFile(__dirname + "/../data/message.json",
+				// 			 JSON.stringify(messages, null, '\t'), "utf8", function(err, data){
+				// })
+				//
+				//
+				// fs.readFile( __dirname + "/../data/message.json", 'utf8', function (err, data) {
+				// 	// 결과 로그 출력
+				// 	console.log("Request_user_key : "+req.body["user_key"]);
+				// 	console.log("Request_type : keyboard - "+req.body["content"]);
+				// 	res.end(data);
+				// 	return;
+				// })
 			})
+
 		}else { // 아닐 경우 이미지검색 실시
 			// var request = require('request'); //get방식으로 request에 대한 response를 받기위해
 			// var encodeURISafe = require('encodeuri-safe'); //get방식에 쓰일 파라미터 값을 인코딩하기 위해
