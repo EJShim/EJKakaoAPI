@@ -14,7 +14,7 @@ module.exports = function(app, fs)
 
 	// 키보드
 	app.get('/keyboard', function(req, res){
-		console.log("keyboard");
+		// console.log("keyboard");
         fs.readFile( __dirname + "/../data/" + "keyboard.json", 'utf8', function (err, data) {
            res.end( data );
         });
@@ -32,11 +32,12 @@ module.exports = function(app, fs)
       return;
     }
 
-		console.log(req.body["user_key"])
-		console.log(req.body["type"])
-
-
+		//DBqsWByz3Au2
+		console.log(req)
+		console.log(res)
 		console.log(req.body["content"]);
+
+
 
 
 		// 초기 keyboard 버튼일 경우(도움말||시작하기||만든이)
