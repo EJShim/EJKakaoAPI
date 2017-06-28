@@ -33,7 +33,7 @@ module.exports = function(app, fs)
     }
 
 		//DBqsWByz3Au2
-		console.log(req.body["content"]);
+		console.error(req.body["content"]);
 
 
 
