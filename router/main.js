@@ -38,7 +38,7 @@ module.exports = function(app, fs)
 
 
 		// 초기 keyboard 버튼일 경우(도움말||시작하기||만든이)
-		if(req.body["content"] == "도움말" || req.body["content"] == "시작하기" || req.body["content"] == "만든이"){
+		if(req.body["content"] == "도움맬" || req.body["content"] == "시작하기" || req.body["content"] == "만든이"){
 
 			fs.readFile( __dirname + "/../data/message.json", 'utf8',  function(err, data){
 				var messages = JSON.parse(data)["content"];
