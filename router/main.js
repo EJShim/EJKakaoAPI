@@ -33,7 +33,7 @@ module.exports = function(app, fs)
     }
 
 		//DBqsWByz3Au2
-		console.log(req.body.content);
+		console.log(req.body.user_key +  "," +req.body.content);
 
 
 
