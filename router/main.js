@@ -9,14 +9,13 @@ module.exports = function(app, fs)
 {
 
 	app.get('/', function(req, res){
-			res.end("Hello World");
+			res.end("EJEJ");
 	});
 
 	// 키보드
 	app.get('/keyboard', function(req, res){
 		console.log("keyboard");
         fs.readFile( __dirname + "/../data/" + "keyboard.json", 'utf8', function (err, data) {
-           console.log( data );
            res.end( data );
         });
 			});
@@ -32,6 +31,9 @@ module.exports = function(app, fs)
 			res.json(result);
       return;
     }
+
+		console.log(req.body["user_key"])
+		console.log(req.body["type"])
 
 
 		console.log(req.body["content"]);
