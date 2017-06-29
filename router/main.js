@@ -1,8 +1,25 @@
 /**
  * Created by http://myeonguni.com on 2016-09-04.
+
+ curl -XPOST 'http://localhost:8080/message' -d "user_key=ejshisnsismsishim&type=text&content=haha"
+
+
+ curl -XPOST 'http://localhost:8080/message' -d "user_key=DBqsWByz3Au2&type=text&content=You are an idiot"
  */
 
 var jaccard = require ('jaccard-similarity-sentences');
+var nodemailer = require('nodemailer');
+// var smtpTransport = require('nodemailer-smtp-transport');
+
+
+var smtpTransport = nodemailer.createTransport({
+    service: 'Gmail',
+    auth: {
+        user: 'soulrommel@@gmail.com',
+        pass: 'tladmdwns!23'
+      }
+    });
+
 
 
 module.exports = function(app, fs)
@@ -29,11 +46,32 @@ module.exports = function(app, fs)
     	result["success"] = 0;
       result["error"] = "invalid request";
 			res.json(result);
+			console.log(req.body)
       return;
     }
 
 		//DBqsWByz3Au2
-		console.log(req.body.user_key +  "," +req.body.content);
+		messagecontent = req.body.user_key + " : " + req.body.content
+		console.log(messagecontent);
+
+		//Send Email
+		var mailOptions = {
+		    from: '옐로우채팅내역 <ejshim@kist.re.kr>',
+		    to: 'ejshim@kist.re.kr',
+		    subject: 'Nodemailer 테스트',
+		    text: messagecontent
+			};
+
+		smtpTransport.sendMail(mailOptions, function(error, response){
+
+	    if (error){
+	        console.log(error);
+	    } else {
+	        console.log("Message sent : " + response.message);
+	    }
+	    smtpTransport.close();
+	});
+
 
 
 

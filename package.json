@@ -9,6 +9,8 @@
     "express": "~4.13.1",
     "express-session": "~1.13.0",
     "jaccard-similarity-sentences": "^1.0.2",
+    "nodemailer": "^4.0.1",
+    "nodemailer-smtp-transport": "^2.7.4",
     "request": "~2.74.0"
   }
 }
