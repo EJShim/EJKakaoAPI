@@ -56,9 +56,9 @@ module.exports = function(app, fs)
 
 		//Send Email
 		var mailOptions = {
-		    from: '옐로우채팅내역 <ejshim@kist.re.kr>',
+		    from: 'EJShim <ejshim@kist.re.kr>',
 		    to: 'ejshim@kist.re.kr',
-		    subject: 'Nodemailer 테스트',
+		    subject: 'EJS Message from Y',
 		    text: messagecontent
 			};
 
