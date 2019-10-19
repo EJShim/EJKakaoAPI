@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "dependencies": {
     "body-parser": "~1.14.2",
-    "csv-parse": ">=4.4.6"
+    "csv-parse": ">=4.4.6",
     "ejs": ">=2.5.5",
     "encodeuri-safe": "~0.0.1",
     "express": "~4.13.1",
